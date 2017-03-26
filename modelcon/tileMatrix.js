@@ -23,16 +23,16 @@ class TileMatrix {
                 tiles[i][j].x = i;
                 tiles[i][j].y = j;
                 tiles[i][j].sId = idx;
-                if (i === 3) {
-                    if (j === 0) {
-                        tiles[i][j].val = "0";
-                    } else {
-                        tiles[i][j].val = noDigit[j - 1];
+
+                if (shuffle) {
+                    if (i !== 3 || (i === 3 && j === 0)) {
+                        tiles[i][j].val = rndArr[idx].toString();
                     }
                 } else {
-                    (shuffle)
-                        ? tiles[i][j].val = rndArr[idx].toString()
-                        : tiles[i][j].val = (idx + 1).toString();
+                    ((idx + 1).toString() === "10") ? tiles[i][j].val = "0" : tiles[i][j].val = (idx + 1).toString();
+                }
+                if (i === 3 && j > 0) {
+                    tiles[i][j].val = noDigit[j - 1];
                 }
                 idx++;
             }

@@ -33,7 +33,7 @@ class Controller {
     }
 
     newPin() {
-        this.pin = new ShuffleArray().shuffle([..."0123456789"]).join("").slice(0, 4);
+        this.pin = new ShuffleArray().shuffle().join("").slice(0, 4);
     }
 
     getPin() {
